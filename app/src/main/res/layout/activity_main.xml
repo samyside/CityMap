@@ -13,18 +13,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/objectList"
-        android:layout_marginBottom="3dp">
+        android:layout_marginBottom="3dp"
+        android:onClick="onClickOpenFrame">
 
         <TextView
             android:id="@+id/header01"
-            android:text="Hello World!"
+            android:text="Open frame!"
             android:textSize="25sp"
             android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"/>
         <TextView
-            android:text="Hello World!"
+            android:id="@+id/desc01"
+            android:text="function opens the description frame"
             android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_marginTop="10dp"
@@ -36,7 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/objectList"
-        android:layout_marginBottom="3dp">
+        android:layout_marginBottom="3dp"
+        android:onClick="onClickOpenFrame02">
 
         <TextView
             android:id="@+id/header02"
@@ -47,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"/>
         <TextView
+            android:id="@+id/desc02"
             android:text="Hello World!"
             android:textColor="@color/white"
             android:layout_width="wrap_content"
@@ -71,6 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"/>
         <TextView
+            android:id="@+id/desc03"
             android:text="Method removes all child elements"
             android:textColor="@color/white"
             android:layout_width="wrap_content"
