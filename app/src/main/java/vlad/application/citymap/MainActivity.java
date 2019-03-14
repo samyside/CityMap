@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         String desc = description.getText().toString();
 
         intent.putExtra("header", name);
-        intent.putExtra("description")
+        intent.putExtra("description", desc);
         startActivity(intent);
     }
 
