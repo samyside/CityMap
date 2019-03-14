@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private String company;
     private int salary;
 
-    Intent intent = new Intent(this, DescriptionActivity.class);
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         TextView description = findViewById(R.id.desc02);
         String desc = description.getText().toString();
 
+        intent = new Intent(this, DescriptionActivity.class);
         intent.putExtra("header", name);
         intent.putExtra("description", desc);
         startActivity(intent);
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         TextView description = findViewById(R.id.desc02);
         String desc = description.getText().toString();
 
+        intent = new Intent(this, DescriptionActivity.class);
         intent.putExtra("header", name);
         intent.putExtra("description", desc);
 
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, "All views has been remove", Toast.LENGTH_LONG).show();
 
         mainLayout = findViewById(R.id.mainLayout);
+        mainLayout.removeAllViews();
     }
 }
 

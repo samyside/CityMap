@@ -13,4 +13,12 @@
         android:layout_centerInParent="true"
         android:text="NO DATA"
         android:textSize="40sp" />
+    <TextView
+        android:id="@+id/descriptionActivity"
+        android:text="no data"
+        android:textSize="20sp"
+        android:layout_below="@id/dataActivity"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

@@ -12,14 +12,21 @@ public class DescriptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_description);
 
         TextView textView = findViewById(R.id.dataActivity);
+        TextView textView1 = findViewById(R.id.descriptionActivity);
 
         Bundle arguments = getIntent().getExtras();
 
-        String name = null;
+        String header = null;
+        String desc = null;
         if (arguments != null) {
-            name = arguments.getString("name");
+            header = arguments.getString("header");
         }
 
-        textView.setText(name);
+        if (arguments != null) {
+            desc = arguments.getString("description");
+        }
+
+        textView.setText(header);
+        textView1.setText(desc);
     }
 }
