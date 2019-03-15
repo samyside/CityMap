@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import vlad.application.item.Item;
+
 public class DescriptionActivity extends AppCompatActivity {
 
     @Override
@@ -11,22 +13,18 @@ public class DescriptionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_description);
 
-        TextView textView = findViewById(R.id.dataActivity);
-        TextView textView1 = findViewById(R.id.descriptionActivity);
+        final TextView textView = findViewById(R.id.dataActivity);
+        final TextView textView1 = findViewById(R.id.descriptionActivity);
 
         Bundle arguments = getIntent().getExtras();
 
-        String header = null;
-        String desc = null;
+        final Item items;
         if (arguments != null) {
-            header = arguments.getString("header");
+            items = (Item) arguments.getSerializable(Item.class.getSimpleName());
+            assert items != null;
+            textView.setText(items.getHeader());
+            textView1.setText(items.getDescription());
         }
 
-        if (arguments != null) {
-            desc = arguments.getString("description");
-        }
-
-        textView.setText(header);
-        textView1.setText(desc);
     }
 }

@@ -2,27 +2,27 @@ package vlad.application.citymap;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import java.io.Serializable;
 
-public class MainActivity extends AppCompatActivity {
+import vlad.application.item.Item;
+
+public class MainActivity extends AppCompatActivity implements Serializable {
 
     private LinearLayout mainLayout;
 
-    private String name;
-    private String company;
-    private int salary;
-
+    Item items;
     Intent intent;
+    TextView header;
+    TextView description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,28 +43,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickOpenFrame(View view) {
-        TextView header = findViewById(R.id.header01);
-        String name = header.getText().toString();
+        final TextView tvHeader = findViewById(R.id.header01);
+        String header = tvHeader.getText().toString();
 
-        TextView description = findViewById(R.id.desc02);
-        String desc = description.getText().toString();
+        final TextView tvDescription = findViewById(R.id.desc01);
+        String description = tvDescription.getText().toString();
 
-        intent = new Intent(this, DescriptionActivity.class);
-        intent.putExtra("header", name);
-        intent.putExtra("description", desc);
+        items = new Item(header, description);
+        Intent intent = new Intent(this, DescriptionActivity.class);
+        intent.putExtra(Item.class.getSimpleName(), items);
         startActivity(intent);
     }
 
     public void onClickOpenFrame02(View view) {
-        TextView header = findViewById(R.id.header02);
-        String name = header.getText().toString();
+        this.header = findViewById(R.id.header02);
+        String header = this.header.getText().toString();
 
-        TextView description = findViewById(R.id.desc02);
-        String desc = description.getText().toString();
+        this.description = findViewById(R.id.desc02);
+        String description = this.description.getText().toString();
 
+        items = new Item(header, description);
         intent = new Intent(this, DescriptionActivity.class);
-        intent.putExtra("header", name);
-        intent.putExtra("description", desc);
+
+        intent.putExtra(Item.class.getSimpleName(), items);
 
         startActivity(intent);
     }
@@ -75,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
 
         mainLayout = findViewById(R.id.mainLayout);
         mainLayout.removeAllViews();
+    }
+
+    public void createOrder(View view) {
+
     }
 }
 
