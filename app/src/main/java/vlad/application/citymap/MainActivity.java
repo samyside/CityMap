@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     Intent intent;
     TextView header;
     TextView description;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,17 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         setContentView(R.layout.activity_main);
 
         mainLayout = findViewById(R.id.mainLayout);
+
+        //training listView
+        listView = findViewById(R.id.listView);
+        final String[] listViewItems = new String[] {
+                "Item_1", "Item_2", "Item_3", "Item_4", "Item_5",
+                "Item_6", "Item_7", "Item_8", "Item_9", "Item_10"
+        };
+        // trying to use adapter
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_list_item_1,listViewItems);
+        listView.setAdapter(adapter);
 
         ImageView imageView = new ImageView(MainActivity.this);
         imageView.setImageResource(R.drawable.glass_cat);
